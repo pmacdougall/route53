@@ -19,6 +19,11 @@
 
 include_recipe 'xml::ruby'
 
+make = package "make" do
+  action :nothing
+end
+make.run_action( :install )
+
 chef_gem "fog" do
   action :install
   version node['route53']['fog_version']

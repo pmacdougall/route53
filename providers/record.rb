@@ -92,7 +92,7 @@ action :create do
 
   def create
     begin
-      zone.records.create({ :name => name,
+      zone(aws).records.create({ :name => name,
                             :value => value,
                             :type => type,
                             :weight => weight,

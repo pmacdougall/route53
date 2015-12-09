@@ -98,7 +98,7 @@ action :create do
                             :weight => weight,
                             :set_identifier => set_identifier,
                             :ttl => ttl })
-      zone(aws).records.create(record_attributes)
+      # zone(aws).records.create(record_attributes)
       Chef::Log.debug("Created record: #{record_attributes.inspect}")
     rescue Excon::Errors::BadRequest => e
       Chef::Log.error Nokogiri::XML( e.response.body ).xpath( "//xmlns:Message" ).text
